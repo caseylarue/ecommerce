@@ -1,0 +1,15 @@
+
+page_name	points	story
+
+(all)		(1) 	decide on a theme for bootstrap
+
+(Home)		(1)		build homepage
+
+(nav)		(1)		display on each page
+(nav)		(1)		building dynamic shopping cart  that updates with each additonal product added.  
+(nav)		(1)		when shopping cart is clicked redirect to cart page 
+
+(products)	(2)		display all products on load
+(products)	(2)		build product search input that will show products of that name on the page
+(products)  (2) 	show categories on the sidebar with the qty
+(products)	

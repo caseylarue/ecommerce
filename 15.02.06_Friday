@@ -1,0 +1,113 @@
+Friday: 
+Take notes on user flows and and what data gets transferred into which form
+
+categorize features: login & registration
+purchasing - cart
+what each user is doing (customer, admin)
+
+
+==========================================
+From customer prospective 
+==========================================
+
+Header/Nav
+- display on each page
+- Dojo eCommerce
+- Shopping Cart (#)  ability to click
+
+Welcome Page (pg.1)
+- Dojo eCommerce
+- Welcome to our site with awesome stuff you can purchase
+
+Products/category (pg.2)
+- display all products on load
+- Search side-bar
+	- product name input field, search on click
+	- product listings by category with number available: t-shirts (55), shoes (35), show all
+- Main content 
+	- heading: product type (page #)    first | prev | 2 | next (all hyper link)
+	- sorted by: drop down Price or Most Popular
+	- pictures of each product in 5 x 3
+	- below each picture $price and description
+	- footer: number of pages 1 | 2 | 3 | 4 | view all (hyperlink)
+
+products/show/$id (pg. 3)
+- product heading
+- picture of product
+- small pictures of each product
+- long product description
+- drop down of product qty
+- buy button
+- similar items / picures and description
+- have a popup message display when an item has been added to cart
+- have the shopping cart updated
+
+cart (p.4)
+- Item | Price | Qty | Total
+- remove button next to qty
+- continue shopping button
+- shipping info (FN, LN, Address, City, State, Zip)
+- billing info (checkbox: same as shipping) (FN, LN, Address, City, State, Zip, CC, Sec Code, Exp)
+- Pay
+
+==========================================
+Admin Section
+==========================================
+
+localhost/admin
+- email, pw, Login button
+
+nav after login
+- Dashboard | Orders | Products | log off
+
+dashboard/orders/%page_number
+- top: search input field
+- top: dropdown -> show all, order in, process, shipped
+- Table:
+ - Order ID: hyperlink to orders/show/$id
+ - Customer Name
+ - Order Date
+ - 
+
+ orders/show/$id
+ - order ID: 
+ - customer shipping info (name, address, city, state, zip)
+ - customer billing info  (name, address, city, state, zip)
+ - table: ID | Item | Price | Qty | Total
+ - status: shpped
+ - table: Sub Total____, Shipping _____, Total Price ______
+
+
+dashboard/products
+- add product button that goes to the edit product page
+- search products input field (not button)
+- Picture | ID | Name | Inventory Count | Qty Sold | Action
+- Inventory Count: Model/db
+- Action: edit(hyperlink) delete(hyperlink)
+
+
+Edit / Add Product Page
+- Iput:
+  - Name
+  - Description
+  - categories dropdown
+  - or add new category
+  - Images upload
+
+
+
+==========================================
+Features II (Phase II of project)
+==========================================
+- guest login
+- change the homepage
+- product reviews
+- user comments about the product
+- order history
+- products that other customers bought with this item
+
+
+
+
+
+
