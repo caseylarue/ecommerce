@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Customers extends CI_Controller {
 
 	public function __construct()
 	{
@@ -17,6 +17,12 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('cart');
 	}
+
+	public function pay_info()
+	{
+		echo "/customers/billing_info";
+	}
+
 }
 
 //end of main controller

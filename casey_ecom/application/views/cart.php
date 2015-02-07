@@ -41,6 +41,10 @@
         font-weight: bold;
         font-size: 18px;
       }
+
+      #input_forms {
+        margin-top: 50px;
+      }
     </style>
   </head>
 
@@ -86,11 +90,95 @@
       </table>
       <div class='row'>
         <div class='col-md-7'></div>
-        <div class='col-md-5 total'>Total $49.95</div>
+        <div class='col-md-3 total'>Total $49.95</div>
+        <a href='/customers/index' class='col-md-35 btn btn-success' type='submit'>Continue Shopping</a>
       </div>
-      
-          
 
+      <div id='input_forms'>
+        <h2>Shipping Information</h2>
+        <form action='/customers/pay_info' method='post'>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >First Name</label></div>
+            <div class='col-md-4'><input type='text' name='shipping_first_name' class='form-control' placeholder='first name'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Last Name</label></div>
+            <div class='col-md-4'><input type='text' name='shipping_last_name' class='form-control' placeholder='last name'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Address</label></div>
+            <div class='col-md-4'><input type='text' name='shipping_address' class='form-control' placeholder='address'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Address 2</label></div>
+            <div class='col-md-4'><input type='text' name='shipping_address_2' class='form-control' placeholder='address'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >City</label></div>
+            <div class='col-md-4'><input type='text' name='shipping_city' class='form-control' placeholder='city'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >State</label></div>
+            <div class='col-md-4'><input type='text' name='shipping_state' class='form-control' placeholder='state'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Zip</label></div>
+            <div class='col-md-4'><input type='text' name='shipping_zip' class='form-control' placeholder='zip'></div>
+          </div>
+        </form>
+        <h2>Billing Information</h2>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >First Name</label></div>
+            <div class='col-md-4'><input type='text' name='billing_first_name' class='form-control' placeholder='first name'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Last Name</label></div>
+            <div class='col-md-4'><input type='text' name='billing_last_name' class='form-control' placeholder='last name'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Address</label></div>
+            <div class='col-md-4'><input type='text' name='billing_address' class='form-control' placeholder='address'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Address 2</label></div>
+            <div class='col-md-4'><input type='text' name='billing_address_2' class='form-control' placeholder='address'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >City</label></div>
+            <div class='col-md-4'><input type='text' name='billing_city' class='form-control' placeholder='city'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >State</label></div>
+            <div class='col-md-4'><input type='text' name='billing_state' class='form-control' placeholder='state'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Zip</label></div>
+            <div class='col-md-4'><input type='text' name='billing_zip' class='form-control' placeholder='zip'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Card Type</label></div>
+            <!-- <div class='col-md-4'><input type='text' name='billing_card_type' class='form-control' placeholder='zip'></div> -->
+            <div class='col-md-4'>
+              <select class='form-control' name='card_type'>
+                <option value='visa'>Visa</option>
+                <option value='mastercard'>Mastercard</option>
+                <option value='american_express'>American Express</option>
+              </select>  
+            </div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Card #</label></div>
+            <div class='col-md-4'><input type='text' name='billing_card_number' class='form-control' placeholder='XXXX XXXX XXXX XXXX'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><label >Security Code</label></div>
+            <div class='col-md-4'><input type='text' name='billing_security_code' class='form-control' placeholder='XXX'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><input type='submit' class='form-control btn btn-success' value='submit'></div>
+          </div>
+        </form>
+      </div> <!-- /end of forms div -->
     </div> <!-- /container -->
 
 
