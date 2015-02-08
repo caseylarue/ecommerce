@@ -125,7 +125,6 @@
             <div class='col-md-2'><label >Zip</label></div>
             <div class='col-md-4'><input type='text' name='shipping_zip' class='form-control' placeholder='zip'></div>
           </div>
-        </form>
         <h2>Billing Information</h2>
           <div class='form-group row'>
             <div class='col-md-2'><label >First Name</label></div>
@@ -159,7 +158,7 @@
             <div class='col-md-2'><label >Card Type</label></div>
             <!-- <div class='col-md-4'><input type='text' name='billing_card_type' class='form-control' placeholder='zip'></div> -->
             <div class='col-md-4'>
-              <select class='form-control' name='card_type'>
+              <select class='form-control' name='billing_card_type'>
                 <option value='visa'>Visa</option>
                 <option value='mastercard'>Mastercard</option>
                 <option value='american_express'>American Express</option>
@@ -175,7 +174,11 @@
             <div class='col-md-4'><input type='text' name='billing_security_code' class='form-control' placeholder='XXX'></div>
           </div>
           <div class='form-group row'>
-            <div class='col-md-2'><input type='submit' class='form-control btn btn-success' value='submit'></div>
+            <div class='col-md-2'><label >Expiration</label></div>
+            <div class='col-md-4'><input type='text' name='billing_expiration' class='form-control' placeholder='XX / XX'></div>
+          </div>
+          <div class='form-group row'>
+            <div class='col-md-2'><button type='submit' class='form-control btn btn-primary'>Pay</button></div>
           </div>
         </form>
       </div> <!-- /end of forms div -->
