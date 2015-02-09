@@ -27,8 +27,11 @@ class Customers extends CI_Controller {
 		{
 			$item = $this->input->post();
 			$item['cart_id']= $this->session->userdata('cart_id');
+			$cart_id = $this->session->userdata('cart_id');
 			$this->load->model('Customer');
 			$this->Customer->add_to_cart($item);
+			$qty = $this->Customer->qty_in_cart($cart_id);
+			$this->session->set_userdata('cart_qty', $qty[0]['total_qty']);
 		}
 		else 
 		{
@@ -40,6 +43,8 @@ class Customers extends CI_Controller {
 			$item = $this->input->post();
 			$item['cart_id']= $cart_id;
 			$this->Customer->add_to_cart($item);
+			$qty = $this->Customer->qty_in_cart($cart_id);
+			$this->session->set_userdata('cart_qty', $qty[0]['total_qty']);
 		}
 	}
 
@@ -48,7 +53,15 @@ class Customers extends CI_Controller {
 		$cart_id = $this->session->userdata('cart_id');
 		$this->load->model('Customer');
 		$items = $this->Customer->display_cart($cart_id);
-		$this->load->view('cart', array('items' => $items));
+		$cart_total = $this->Customer->cart_total($cart_id);
+		$this->load->view('cart', array('items' => $items, 'cart_total' => $cart_total));
+	}
+
+	public function delete_item($product_id)
+	{
+		$cart_id = $this->session->userdata('cart_id')
+		$this->load->model('Customer');
+		$this->Customer->delete_item($product_id, $cart_id);
 	}
 
 

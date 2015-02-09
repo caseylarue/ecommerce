@@ -24,4 +24,19 @@ class Customer extends CI_model {
 		GROUP BY products.id")->result_array();
 	}
 
+	function cart_total($cart_id)
+	{
+		return $this->db->query("SELECT SUM(cart_products.product_qty * products.price) as item_total
+		FROM cart_products
+		JOIN products ON cart_products.product_id = products.id
+		WHERE cart_products.cart_id=$cart_id")->row_array();
+	}
+
+	function qty_in_cart($cart_id)
+	{
+		return $this->db->query("SELECT SUM(product_qty) as total_qty
+		FROM cart_products
+		WHERE cart_id=$cart_id")->result_array();
+	}
+
 }

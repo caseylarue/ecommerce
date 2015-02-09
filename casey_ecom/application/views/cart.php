@@ -74,25 +74,16 @@
           <td><?=$item['price']?></td>
           <td><?=$item['qty']?></td>
           <td><?=$item['total']?></td>
-          <td><a href="#">delete</a></td>
+          <td><a href="/customer/delete_item/<?=$item['product_id']?>"> delete</a></td>
         </tr>
 <?php
-      }
-
-      $sumArray = array();
-      foreach($items as $item) 
-      {
-        $sumArray[] += $item['total'];
-      }
-      var_dump($sumArray);
-
-      // var_dump(sum($items['total']));
+      };
 ?>
           </tbody>
       </table>
       <div class='row'>
         <div class='col-md-7'></div>
-        <div class='col-md-3 total'>Total $49.95</div>
+        <div class='col-md-3 total'>$<?= $cart_total['item_total'] ?></div>
         <a href='/customers/index' class='col-md-35 btn btn-success' type='submit'>Continue Shopping</a>
       </div>
 
