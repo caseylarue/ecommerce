@@ -10,7 +10,7 @@ class Customers extends CI_Controller {
 
 	public function index()
 	{
-		echo "you made it";
+		$this->load->view('home');
 	}
 
 	public function cart()
@@ -21,8 +21,6 @@ class Customers extends CI_Controller {
 	public function pay_info()
 	{
 		$result = $this->input->post();
-
-
  	 	$shipping['first_name'] = $result["shipping_first_name"];
  	 	$shipping['last_name'] = $result["shipping_last_name"];
   		$shipping['address'] = $result["shipping_address"];
@@ -30,8 +28,6 @@ class Customers extends CI_Controller {
   		$shipping['city'] = $result["shipping_city"];
   		$shipping['state'] = $result["shipping_state"];
   		$shipping['zip'] = $result["shipping_zip"];
-
-
 
 	  	$billing['first_name'] = $result["billing_first_name"];
 	  	$billing['last_name'] = $result["billing_last_name"];
@@ -45,10 +41,6 @@ class Customers extends CI_Controller {
 	 	$billing['security_code'] = $result["billing_security_code"];
 	  	$billing['billing_expiration'] = $result["billing_expiration"];
 
-
-  		echo "<pre>";
-  		var_dump($billing);
-		echo "</pre>";
 	}
 
 
