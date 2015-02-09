@@ -74,7 +74,7 @@
           <td><?=$item['price']?></td>
           <td><?=$item['qty']?></td>
           <td><?=$item['total']?></td>
-          <td><a href="/customer/delete_item/<?=$item['product_id']?>"> delete</a></td>
+          <td><a href="/customers/delete_item/<?=$item['product_id']?>"> delete</a></td>
         </tr>
 <?php
       };
@@ -84,12 +84,12 @@
       <div class='row'>
         <div class='col-md-7'></div>
         <div class='col-md-3 total'>$<?= $cart_total['item_total'] ?></div>
-        <a href='/customers/index' class='col-md-35 btn btn-success' type='submit'>Continue Shopping</a>
+        <a href='/customers/catalog' class='col-md-35 btn btn-success' type='submit'>Continue Shopping</a>
       </div>
 
       <div id='input_forms'>
         <h2>Shipping Information</h2>
-        <form action='/customers/pay_info' method='post'>
+        <form action='/customers/checkout' method='post'>
           <div class='form-group row'>
             <div class='col-md-2'><label >First Name</label></div>
             <div class='col-md-4'><input type='text' name='shipping_first_name' class='form-control' placeholder='first name'></div>
@@ -171,7 +171,7 @@
             <div class='col-md-4'><input type='text' name='billing_expiration' class='form-control' placeholder='XX / XX'></div>
           </div>
           <div class='form-group row'>
-            <div class='col-md-2'><button type='submit' class='form-control btn btn-primary'>Pay</button></div>
+            <div class='col-md-2'><button type='submit' class='form-control btn btn-primary'>Checkout</button></div>
           </div>
         </form>
       </div> <!-- /end of forms div -->

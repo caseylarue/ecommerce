@@ -39,4 +39,24 @@ class Customer extends CI_model {
 		WHERE cart_id=$cart_id")->result_array();
 	}
 
+	function delete_item($product_id, $cart_id)
+	{
+		return $this->db->query("DELETE FROM cart_products 
+		WHERE cart_id=$cart_id AND product_id=$product_id");
+	}
+
+	function submit_order($items)
+	{
+		$query = "INSERT INTO orders (cart_id, customer_id, shipping_costs, total, status, created_at) VALUES (?, ?, ?, NOW())";
+		$values = array($item['cart_id'], $item['product_id'], $item['qty']);
+		return $this->db->query($query, $values);
+	}
+
+	function add_customer($result)
+	{
+		$query = "INSERT INTO customers (first_name, last_name, address1, address2, city, state, zipcode, card_type, credit_card_number, security_code, expiration_date, created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,NOW())";
+		$values = array($result["billing_first_name"], $result["billing_last_name"], $result["billing_address"], $result["billing_address_2"], $result["billing_city"], $result["billing_state"], $result["billing_zip"], $result["billing_card_type"], $result["billing_card_number"], $result["billing_security_code"], $result["billing_expiration"]);
+		return $this->db->query($query, $values);
+	}
+
 }
