@@ -10,6 +10,7 @@ class Customers extends CI_Controller {
 
 	public function index()
 	{
+		$this->session->sess_destroy();
 		$this->load->view('home');
 	}
 
@@ -18,18 +19,18 @@ class Customers extends CI_Controller {
 		$this->load->view('product');
 	}
 
-	public function cart()
-	{
-		$this->load->view('cart');
-	}
-
+	
 	public function build_cart()
 	{
 
 		if(!empty($this->session->userdata('cart_id')))
 		{
-			echo "cart id is set";
+			$item = $this->input->post();
+			$item['cart_id']= $this->session->userdata('cart_id');
+			$this->load->model('Customer');
+			$this->Customer->add_to_cart($item);
 		}
+		else 
 		{
 			$this->load->model('Customer');
 			$this->Customer->create_cart();
@@ -37,14 +38,19 @@ class Customers extends CI_Controller {
 			$this->session->set_userdata('cart_id', $cart_id);
 
 			$item = $this->input->post();
-			$item['cart_id']= $cart_id
+			$item['cart_id']= $cart_id;
 			$this->Customer->add_to_cart($item);
 		}
-
-
-		// $item = $this->input->post();
-		// var_dump($item);
 	}
+
+	public function cart()
+	{
+		$cart_id = $this->session->userdata('cart_id');
+		$this->load->model('Customer');
+		$items = $this->Customer->display_cart($cart_id);
+		$this->load->view('cart', array('items' => $items));
+	}
+
 
 	public function pay_info()
 	{

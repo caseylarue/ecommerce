@@ -55,37 +55,39 @@
       <!-- Static navbar -->
       <?php require('nav_customer.php'); ?>
       <table class='table table-striped table-bordered'>
-        <thead>
-          <tr id='table_heading'>
-            <td>Item</td>
-            <td>Price</td>
-            <td>Qty</td>
-            <td>Total</td>
-            <td>Update</td>
-          </tr>
-        </thead>
-          <tbody>
-            <tr>
-              <td>Black Belt</td>
-              <td>$19.99</td>
-              <td> 1 </td>
-              <td>$19.99</td>
-              <td><a href="#">delete</a></td>
-            </tr>
-            <tr>
-              <td>Black Belt</td>
-              <td>$19.99</td>
-              <td> 1 </td>
-              <td>$19.99</td>
-              <td><a href="#">delete</a></td>
-            </tr>
-            <tr>
-              <td>Black Belt</td>
-              <td>$19.99</td>
-              <td> 1 </td>
-              <td>$19.99</td>
-              <td><a href="#">delete</a></td>
-            </tr>
+      <thead>
+        <tr id='table_heading'>
+          <td>Item</td>
+          <td>Price</td>
+          <td>Qty</td>
+          <td>Total</td>
+          <td>Update</td>
+        </tr>
+      </thead>
+        <tbody>
+<?php
+      foreach($items as $item)
+      {
+?>
+        <tr>
+          <td><?=$item['description']?></td>
+          <td><?=$item['price']?></td>
+          <td><?=$item['qty']?></td>
+          <td><?=$item['total']?></td>
+          <td><a href="#">delete</a></td>
+        </tr>
+<?php
+      }
+
+      $sumArray = array();
+      foreach($items as $item) 
+      {
+        $sumArray[] += $item['total'];
+      }
+      var_dump($sumArray);
+
+      // var_dump(sum($items['total']));
+?>
           </tbody>
       </table>
       <div class='row'>

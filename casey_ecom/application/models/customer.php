@@ -10,14 +10,18 @@ class Customer extends CI_model {
 
 	function add_to_cart($item)
 	{
-		$query = "INSERT INTO cart_products (cart_id, products_id, product_qty, created_at) VALUES (?, ?, ?, NOW())";
-		$values = array()
-		return $this->db->query($query);
+		$query = "INSERT INTO cart_products (cart_id, product_id, product_qty, created_at) VALUES (?, ?, ?, NOW())";
+		$values = array($item['cart_id'], $item['product_id'], $item['qty']);
+		return $this->db->query($query, $values);
 	}
 
-	// function cart_id()
-	// {
-	// 	return $this->db->query("SELECT * from cart ORDER by ")
-	// }
+	function display_cart($cart_id)
+	{
+		return $this->db->query("SELECT cart_products.cart_id,cart_products.product_id, products.description, products.price, SUM(cart_products.product_qty) as qty, SUM(cart_products.product_qty * products.price) as total
+		FROM cart_products
+		JOIN products ON cart_products.product_id = products.id
+		WHERE cart_products.cart_id=$cart_id
+		GROUP BY products.id")->result_array();
+	}
 
 }
