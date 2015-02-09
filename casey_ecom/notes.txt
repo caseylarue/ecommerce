@@ -1,0 +1,17 @@
+When the Add to Cart Button is clicked:
+
+
+if(!isset($this->session->userdata('cart_id'))
+{
+
+	// 
+	// get the post data to add to cart_products ($cart_id, product_id, product_qty, created_at)
+
+
+}
+else
+{
+	// this the not the first addition to the cart in the session
+
+}
+

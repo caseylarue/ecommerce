@@ -13,9 +13,37 @@ class Customers extends CI_Controller {
 		$this->load->view('home');
 	}
 
+	public function product()
+	{
+		$this->load->view('product');
+	}
+
 	public function cart()
 	{
 		$this->load->view('cart');
+	}
+
+	public function build_cart()
+	{
+
+		if(!empty($this->session->userdata('cart_id')))
+		{
+			echo "cart id is set";
+		}
+		{
+			$this->load->model('Customer');
+			$this->Customer->create_cart();
+			$cart_id = $this->db->insert_id();
+			$this->session->set_userdata('cart_id', $cart_id);
+
+			$item = $this->input->post();
+			$item['cart_id']= $cart_id
+			$this->Customer->add_to_cart($item);
+		}
+
+
+		// $item = $this->input->post();
+		// var_dump($item);
 	}
 
 	public function pay_info()
