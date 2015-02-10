@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>eCommerce Home</title>
+    <title>Catalog</title>
 
     <!-- Bootstrap core CSS -->
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +31,7 @@
 <link rel="stylesheet" href=“http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css”>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<link href="../assets/css/style.css" rel="stylesheet">
   </head>
 
   <body>
@@ -39,13 +40,51 @@
 
       <!-- Static navbar -->
      <?php require('nav_customer.php'); ?>
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Welcome to Dojo eCommerce</h1>       
-        <p>
-          <a class="btn btn-lg btn-primary" href="/customers/catalog" role="button">Get Started &raquo;</a>
-        </p>
+     <div class="row">
+        <div id="side_bar" class="col-xs-12 col-md-4">
+          <form>
+            <input type="text" name="search" placeholder="product name">
+            <input type="submit" name="submit" value="Search">
+          </form>
+     
+          <dl>
+            <dt>Categories</dt>
+            <dl>
+        <?php $total =0;
+            foreach($types as $type){?>
+              <dd><a href=<?= "'/customers/get_product/". $type['id']."'"?> > <?= $type['name']." (". $type['count'].")";?></a></dd>           
+         <?php
+                $total = $total + intval($type['count']); 
+              }?>
+          <dd><a href='/customers/catalog' ><em>Show All <?= " (". $total.")";?></em></a></dd>
+          </dl>
+        </div>    
+        <?php require('partial_catalog.php');?> <!-- partial view from products-->        
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+          <nav>
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-md-2"></div>
       </div>
 
     </div> <!-- /container -->

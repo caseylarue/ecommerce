@@ -1,16 +1,5 @@
-Altered/ Created: cart, cart_products, orders, customers (added cart_type)
-
-
-
-
-
-Sweep all Cart Info to Orders Table
-- query to get cart info
-cart_id, product_id, product_qty
-
-$query = "INSERT INTO orders (cart_id, customer_id, shipping_costs, total, status, created_at) VALUES (?,?,8.95,?,in_process,NOW())";
-$values = array($order['cart_id'], $order['customer_id'], $order['total']);
-
-
+#1 (orders_dashboard)	()	display orders in table
+#2 (orders_dashboard)	()	select option to update order status -> order in, process, shipped
+#3 (orders_dashboard)	()	order id: hyperlink to see specific order
 
 
