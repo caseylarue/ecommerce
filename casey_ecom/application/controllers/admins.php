@@ -6,7 +6,7 @@ class Admins extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Ecommerce');
-		$this->output->enable_profiler();
+		// $this->output->enable_profiler();
 	}
 
 	public function index()
@@ -130,8 +130,9 @@ class Admins extends CI_Controller {
 
 	private function load_order_data()
 	{
-		//run query to get all order data
-		$this->load->view('partial_view_orders_table');
+		$this->load->model('Admin');
+		$orders = $this->Admin->get_orders();
+		$this->load->view('partial_view_orders_table', array('orders' => $orders));
 	}
 
 	private function load_product_data()

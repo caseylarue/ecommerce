@@ -41,26 +41,34 @@
 		 		</tr>
 		 	</thead>
 		 	<tbody  class="table table-striped">
-		 		<tr>
-			 		<td class='text-center'><a href="/admins/show_order">100</a></td>
-			 		<td>Bob</td>
-			 		<td>9/16/2014</td>
-			 		<td>123 Dojo Way, Bellvue WA 98005</td>
-			 		<td>$150.00</td>
-			 		<td><div class="btn-group">
-							  <button type="button" class="btn btn-default">Action</button>
-							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-							    <span class="caret"></span>
-							    <span class="sr-only">Toggle Dropdown</span>
-							  </button>
-							  <ul class="dropdown-menu" role="menu">
-							    <li><a href="#">Order In Process</a></li>
-							    <li><a href="#">Shipped</a></li>
-							    <li><a href="#">Cancelled</a></li>
-							  </ul>
-						</div>
-					</td>
-				<tr>
+<?php
+				foreach($orders as $order)
+				{
+?>
+					<tr>
+				 		<td class='text-center'><a href="/admins/show_order">100</a></td>
+				 		<td>Bob</td>
+				 		<td>9/16/2014</td>
+				 		<td>123 Dojo Way, Bellvue WA 98005</td>
+				 		<td>$150.00</td>
+				 		<td><div class="btn-group">
+								  <button type="button" class="btn btn-default">Action</button>
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								    <span class="caret"></span>
+								    <span class="sr-only">Toggle Dropdown</span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								    <li><a href="#">Order In Process</a></li>
+								    <li><a href="#">Shipped</a></li>
+								    <li><a href="#">Cancelled</a></li>
+								  </ul>
+							</div>
+						</td>
+					<tr>
+<?php
+				}
+?>			 		
+
 				<tr>
 			 		<td class='text-center'><a href="/admins/show_order">100</a></td>
 			 		<td>Bob</td>
