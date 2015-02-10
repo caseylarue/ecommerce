@@ -9,7 +9,7 @@ Sweep all Cart Info to Orders Table
 cart_id, product_id, product_qty
 
 $query = "INSERT INTO orders (cart_id, customer_id, shipping_costs, total, status, created_at) VALUES (?,?,8.95,?,in_process,NOW())";
-$values = array($order['cart_id'], $order['customer_id'], $order['total'])
+$values = array($order['cart_id'], $order['customer_id'], $order['total']);
 
 
 
