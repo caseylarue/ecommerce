@@ -71,41 +71,26 @@ class Customers extends CI_Controller {
 	public function checkout()
 	{
 		$result = $this->input->post();
-		$cart_id = $this->session->userdata('cart_id');
 		$this->load->model('Customer');
+
+		// add to customer info to db
 		$this->Customer->add_customer($result);
 		$result['customer_id'] = $this->db->insert_id();
+
+		// add customer shipping address to db
 		$this->Customer->add_shipping($result);
 
-		// $items = $this->Customer->display_cart($cart_id);
-		// echo "<pre>";
-		// var_dump($items);
-		// echo "</pre>";
-		// $this->Customer->submit_order($items)
+		// add order to db
+		$cart_id = $this->session->userdata('cart_id');
 
-		// add form-validation to shipping info and billing info 
-
-		
- 	 // 	$shipping['first_name'] = $result["shipping_first_name"];
- 	 // 	$shipping['last_name'] = $result["shipping_last_name"];
-  	// 	$shipping['address'] = $result["shipping_address"];
-  	// 	$shipping['address_2'] = $result["shipping_address_2"];
-  	// 	$shipping['city'] = $result["shipping_city"];
-  	// 	$shipping['state'] = $result["shipping_state"];
-  	// 	$shipping['zip'] = $result["shipping_zip"];
-
-	  // 	$billing['first_name'] = $result["billing_first_name"];
-	  // 	$billing['last_name'] = $result["billing_last_name"];
-	  // 	$billing['address'] = $result["billing_address"];
-	  // 	$billing['address_2'] = $result["billing_address_2"];
-	 	// $billing['city'] = $result["billing_city"];
-	 	// $billing['state'] = $result["billing_state"];
-	 	// $billing['zip'] = $result["billing_zip"];
-	 	// $billing['card_type'] = $result["billing_card_type"];
-	 	// $billing['card_number'] = $result["billing_card_number"];
-	 	// $billing['security_code'] = $result["billing_security_code"];
-	  // 	$billing['billing_expiration'] = $result["billing_expiration"];
-
+		$total = $this->Customer->cart_total($cart_id);
+		foreach($total as $value)
+		{
+			$order['total'] = $value;
+		}
+		$order['cart_id'] = $this->session->userdata('cart_id');
+		$order['customer_id'] = $result['customer_id'];
+		$this->Customer->submit_order($order);
 
 
 	}
