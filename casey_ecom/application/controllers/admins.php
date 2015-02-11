@@ -120,9 +120,11 @@ class Admins extends CI_Controller {
 	public function show_order($id)
 	{
 		$this->load->model('Admin');
-		$invoice = $this->Admin->display_invoice($id);
-		var_dump($invoice);
-		// $this->load->view('show_order', array('invoice' => $invoice));
+		$order = $this->Admin->display_invoice($id);
+		$items = $this->Admin->invoice_details($id);
+		// var_dump($order);
+		var_dump($items);
+		// $this->load->view('show_order', array('order' => $order, 'items' => $items));
 	}
 
 	public function update_product()
