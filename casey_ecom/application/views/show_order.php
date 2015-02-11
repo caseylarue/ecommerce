@@ -100,7 +100,7 @@
     <div class="row">
 		  <div class="col-md-3">
 		  	<div class='customer_info'>
-			  	<p>Order ID: <?=$order['id'] ?></p>
+			  	<p>Order ID: <?=$order['order_id'] ?></p>
 			  	<div class='shipping_info'>
 			  		<p>Customer shipping info</p>
 			  		<p>Name: <?=$order['shipping_first_name']." ".$order['shipping_last_name'] ?> </p>
@@ -149,7 +149,7 @@
 				</table>
 				<div class="row">
 				    <div class="col-xs-8 col-sm-6">
-				        <p class=' btn-success'>Status shipped</p>
+				        <p class=' btn-success'>Status: <?=$item['order_status'] ?></p>
 				    </div>
 				    <div class="col-xs-4 col-sm-6">
 				    	<div class='totals'>
