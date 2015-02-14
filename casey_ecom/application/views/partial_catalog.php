@@ -1,5 +1,3 @@
-
-
 <style type="text/css">
   .image{   
     margin: 5px;
@@ -12,23 +10,42 @@
 
 <div class="col-xs-6 col-md-8">  
          <div class="row">
-          <div class="col-md-8"><h3>Tshirts (page 2)</h3></div>
+          <div class="col-md-8">
+            <h3>
+<?php      if($category == 0){
+              echo "Showing all";
+          }
+          else{
+            echo $imgs[0]['name'];
+          }
+?>          </h3></div>
           <div class="col-md-4">
-            <ul class="list-inline list-unstyled ">
-              <li><a href="#">first</a></li>
-              <li><a href="#">prev</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">next</a></li>
+
+            <ul sclass="list-inline list-unstyled ">
+              <li>Pages:</li>
+<?php
+              // determine the pages for pagination
+              $number_pages = intval($count_imgs['count_imgs'])/20;
+              $pages = round($number_pages, 0, PHP_ROUND_HALF_UP);
+              for($i=1; $i<=$pages; $i++)
+              { 
+?>
+                 <li><a href="/customers/pages/<?=$i?>"><?= $i ?></a></li>
+<?php
+              }
+?>
             </ul>            
-          </div>
+          </div>  <!-- close pagination -->
         </div>  
-        <?php for($i= 0 ; $i < 7 ; $i++){?>
-            <div class="row">
-              <?php for($j=0; $j < 4; $j++){
-                foreach($imgs as $img){?>
-                  <a href="/customers/product"><img class=" col-md-2 image" src=<?= "'".$img['url']."'"?> alt="tshirt"></a>
-            <?php }
-            }?>       
-          </div>
-          <?php }?>
+         <div class="row">
+<?php        
+            echo intval($count_imgs['count_imgs']);
+            for($i=1; $i<=20; $i++)
+            {
+?>
+              <a href="/customers/product"><img class=" col-md-2 image" src=<?= "'".BASE_URL.$imgs[$i]['url']."'";?> alt="coming soon"></a>
+<?php
+            }
+?>
+       </div>
         </div>

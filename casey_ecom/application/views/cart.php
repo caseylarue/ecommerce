@@ -175,7 +175,7 @@
             if(!empty($cart_total['item_total']))
             {
 ?>
-                <div class='col-md-2'><button type='submit' class='form-control btn btn-primary'>Checkout</button></div>
+            <div class='col-md-2'><button type='submit' class='form-control btn btn-primary'>Checkout</button></div>
 <?php       }
             else
             {

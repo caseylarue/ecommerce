@@ -135,7 +135,7 @@
 					foreach($items as $item)
 					{
 ?>
-						<tr>
+				 		<tr>
 				 			<td><?=$item['order_id'] ?></td>
 							<td><?=$item['product_name'] ?></td>
 							<td><?=$item['product_price'] ?></td>

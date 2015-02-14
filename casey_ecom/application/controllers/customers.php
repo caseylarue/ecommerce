@@ -5,15 +5,21 @@ class Customers extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->output->enable_profiler();
+		//$this->output->enable_profiler();
+		$this->load->model('Ecommerce');
 	}
 
-	public function index()
+		public function index()
 	{
 		$this->session->sess_destroy();
 		$this->load->view('home');
 	}
 
+	public function catalog()
+	{
+		$this->get_partial_catalog(null);
+		
+	}
 
 	public function product()
 	{
@@ -23,7 +29,6 @@ class Customers extends CI_Controller {
 	
 	public function build_cart()
 	{
-
 		if(!empty($this->session->userdata('cart_id')))
 		{
 			$item = $this->input->post();
@@ -49,6 +54,10 @@ class Customers extends CI_Controller {
 			$this->session->set_userdata('cart_qty', $qty[0]['total_qty']);
 			redirect('/customers/product');
 		}
+	}
+
+	public function buy(){
+		echo "Thank you for buying!";
 	}
 
 	public function cart()
@@ -98,5 +107,58 @@ class Customers extends CI_Controller {
 
 	}
 
+	public function get_product($category_id){	
+		$this->get_partial_catalog($category_id);
+	}
+
+	private function get_partial_catalog($category_id)
+	{
+		if($category_id != null)
+		{
+			$result1 = $this->Ecommerce->get_images_by_category($category_id);
+			$category = 1;
+		}
+		else{
+			$result1= $this->Ecommerce->get_images();
+			$category = 0;
+		}
+		$result2 = $this->Ecommerce->get_all_category_with_counts();	
+		$count_imgs = $this->Ecommerce->count_images();	
+		$array = array(
+					'types' => $result2,
+					'imgs' => $result1,
+					'category' => $category,
+					'count_imgs' => $count_imgs
+					);
+		$this->load->view('catalog', $array);
+	}
+	
+	
+
+	public function search_product(){
+		$product = $this->input->post('search');
+		$category = $this->Ecommerce->get_category();
+		for($i=0; $i < count($category); $i++){
+			foreach(array($category[$i]) as $value){
+				if($value['name'] == $product){
+					echo "found!";
+				}else{
+					echo "item not found!";
+				}
+
+			}
+		}
+	}
+
+	public function pages($page)
+	{
+		$start_pic = ($page-1)*20+1;
+		$end_pic = $start_pic+20;
+		// select imgs from db from img id 21 through 41
+	}
+
 
 }   //end of main controller
+
+
+//end of main controller

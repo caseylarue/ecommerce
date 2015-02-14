@@ -88,23 +88,23 @@
 
       <div class="row">
         <figure class="col-md-2">
-          <div class="image_product"></div>
+           <a class="image_a" href="/customers/product"></a>
           <figcaption class="text-center">Black Belt</figcaption>
         </figure>
         <figure class="col-md-2">
-          <div class="image_product"></div>
+          <a class="image_a" href="/customers/product"></a>
           <figcaption class="text-center">Black Belt</figcaption>
         </figure>
         <figure class="col-md-2">
-          <div class="image_product"></div>
+           <a class="image_a" href="/customers/product"></a>
           <figcaption class="text-center">Black Belt</figcaption>
         </figure>
        <figure class="col-md-2">
-          <div class="image_product"></div>
+           <a class="image_a" href="/customers/product"></a>
           <figcaption class="text-center">Black Belt</figcaption>
         </figure>
         <figure class="col-md-2">
-          <div class="image_product"></div>
+           <a class="image_a" href="/customers/product"></a>
           <figcaption class="text-center">Black Belt</figcaption>
         </figure>  
       </div>

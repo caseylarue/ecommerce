@@ -45,7 +45,7 @@
 				foreach($orders as $order)
 				{
 ?>
-					<tr>
+		 		<tr>
 				 		<td class='text-center'><a href="/admins/show_order/<?= $order['id'] ?>"><?= $order['id'] ?></a></td>
 				 		<td><?= $order['first_name']." ".$order['last_name'] ?></td>
 				 		<td><?= $order['created_at'] ?></td>
@@ -92,11 +92,12 @@
 					 			</form>	
 <?php						}
 ?>
-				 		</td>
-					<tr>
+					</td>
+				<tr>
 <?php
 				}
 ?>			 		
+					
 		 	</body>
 		</table>
     
